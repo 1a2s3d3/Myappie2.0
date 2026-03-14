@@ -1,0 +1,643 @@
+/* =========================
+   BASE
+========================= */
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background-color:yellow;
+  margin:0;
+  padding:0;
+  font-family:Arial, Helvetica, sans-serif;
+  overflow-x:hidden;
+  color:#222;
+}
+
+section{
+  width:100%;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* =========================
+   GENERAL CONTAINER
+========================= */
+.container{
+  width:min(1120px, 92%);
+  margin:auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar{
+  background-color:rgb(13,94,5);
+  color:white;
+  padding:12px 0;
+  width:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 6px 20px rgba(0,0,0,0.18);
+}
+
+.navbar .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.logo-img,
+.navbar .container img{
+  height:65px;
+  width:auto;
+  max-width:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* Toggle button */
+.navbar-toggler{
+  border:none;
+  background:transparent;
+  padding:6px 10px;
+  display:none;
+  cursor:pointer;
+}
+
+.navbar-toggler:focus{
+  outline:none;
+  box-shadow:none;
+}
+
+.navbar-toggler-icon{
+  display:inline-block;
+  width:30px;
+  height:22px;
+  position:relative;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon{
+  background-image:none !important;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:3px;
+  background:white;
+  border-radius:4px;
+}
+
+.navbar-toggler-icon::before{
+  top:0;
+  box-shadow:0 9px 0 white;
+}
+
+.navbar-toggler-icon::after{
+  bottom:0;
+}
+
+/* Collapse */
+.navbar-collapse{
+  display:flex;
+  justify-content:center;
+  flex:1;
+}
+
+.navbar-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  list-style:none;
+  padding-left:0;
+  margin:0;
+  flex-wrap:wrap;
+}
+
+/* =========================
+   NAV ITEMS
+========================= */
+.nav-item{
+  background-color:yellow;
+  border-radius:999px;
+  padding:6px 16px;
+  text-align:center;
+  transition:transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  box-shadow:0 4px 10px rgba(0,0,0,0.12);
+}
+
+.nav-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 18px rgba(0,0,0,0.16);
+}
+
+.nav-link{
+  color:blue !important;
+  font-weight:600;
+  text-decoration:none;
+  display:block;
+}
+
+.nav-link:hover{
+  color:darkblue !important;
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+#home{
+  width:100%;
+  min-height:100vh;
+  padding-top:120px;
+  padding-bottom:50px;
+  display:flex;
+  align-items:center;
+}
+
+.flex-container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+  width:100%;
+}
+
+/* Left and right columns */
+.left-col,
+.right-col{
+  flex:1;
+  width:100%;
+}
+
+.left-col{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.right-col{
+  display:flex;
+  justify-content:center;
+}
+
+/* =========================
+   IMAGE BOX
+========================= */
+.img-box{
+  border:4px solid #1725df;
+  width:min(520px,100%);
+  aspect-ratio:1/1;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:white;
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
+
+.img-box img{
+  width:100%;
+  height:100%;
+  border:2px solid #1725df;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1,h2,h3{
+  font-family:Georgia, "Times New Roman", Times, serif;
+  text-transform:capitalize;
+  margin-top:0;
+}
+
+.left-col h2,
+.menu-section h2,
+.about-section h2,
+.order-section h2,
+.contact-section h2{
+  font-size:clamp(1.5rem, 3vw, 2.2rem);
+  line-height:1.4;
+  color:rgb(13,94,5);
+  text-shadow:1px 1px 0 rgba(255,255,255,0.4);
+  width:100%;
+  max-width:100%;
+  word-break:break-word;
+}
+
+.left-col h2{
+  text-align:left;
+  margin-bottom:16px;
+}
+
+.hero-text{
+  font-size:1rem;
+  line-height:1.8;
+  max-width:560px;
+  color:#333;
+  margin-bottom:24px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.hero-buttons .btn{
+  border-radius:999px;
+  padding:12px 24px;
+  font-weight:700;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12);
+}
+
+.hero-buttons .btn-warning{
+  background-color:rgb(13,94,5);
+  border:2px solid rgb(13,94,5);
+  color:yellow;
+}
+
+.hero-buttons .btn-warning:hover{
+  background-color:yellow;
+  color:rgb(13,94,5);
+}
+
+.hero-buttons .btn-outline-light{
+  border:2px solid blue;
+  color:blue;
+  background:white;
+}
+
+.hero-buttons .btn-outline-light:hover{
+  background:blue;
+  color:yellow;
+}
+
+/* =========================
+   MENU SECTION
+========================= */
+.menu-section{
+  padding:70px 0;
+  text-align:center;
+}
+
+.menu-subtext{
+  max-width:700px;
+  margin:0 auto 30px;
+  color:#333;
+  line-height:1.7;
+}
+
+.menu-slider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  width:100%;
+}
+
+.menu-image-box{
+  width:min(700px,100%);
+  height:clamp(220px,40vw,420px);
+  border:4px solid blue;
+  border-radius:20px;
+  overflow:hidden;
+  background:white;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.menu-image-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* Slider arrows */
+.arrow{
+  background-color:yellow;
+  color:blue;
+  font-size:30px;
+  font-weight:bold;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  cursor:pointer;
+  border:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 14px rgba(0,0,0,0.15);
+  transition:all 0.3s ease;
+}
+
+.arrow:hover{
+  background-color:rgb(13,94,5);
+  color:yellow;
+  transform:scale(1.05);
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about-section{
+  padding:30px 0 10px;
+}
+
+.about-text{
+  max-width:800px;
+  margin:auto;
+  font-size:1rem;
+  line-height:1.9;
+  color:#333;
+  background:rgba(255,255,255,0.45);
+  padding:24px;
+  border-radius:18px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   ORDER SECTION
+========================= */
+.order-section{
+  padding:30px 0 10px;
+}
+
+.order-form{
+  width:min(650px, 100%);
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
+  border:3px solid blue;
+}
+
+.order-form .form-control{
+  width:100%;
+  padding:14px 16px;
+  border:2px solid rgba(13,94,5,0.25);
+  border-radius:12px;
+  font-size:1rem;
+  outline:none;
+  box-shadow:none;
+}
+
+.order-form .form-control:focus{
+  border-color:blue;
+  box-shadow:0 0 0 4px rgba(23,37,223,0.12);
+}
+
+.order-form .btn{
+  border:none;
+  padding:14px 20px;
+  border-radius:999px;
+  font-weight:700;
+  background-color:rgb(13,94,5);
+  color:yellow;
+  transition:all 0.3s ease;
+}
+
+.order-form .btn:hover{
+  background-color:blue;
+  color:yellow;
+}
+
+/* =========================
+   CONTACT SECTION
+========================= */
+.contact-section{
+  padding:30px 0 40px;
+}
+
+.contact-section p{
+  font-size:1rem;
+  line-height:1.8;
+  margin:10px 0;
+  color:#222;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-section{
+  background-color:rgb(13,94,5);
+  color:yellow;
+  margin-top:30px;
+  padding:10px 0;
+  text-align:center;
+}
+
+.footer-section p{
+  margin:0;
+  font-size:0.95rem;
+}
+
+/* =========================
+   TABLETS
+========================= */
+@media(max-width:992px){
+
+  .navbar-toggler{
+    display:block;
+  }
+
+  .navbar-collapse{
+    width:100%;
+    display:none;
+  }
+
+  .navbar-collapse.show{
+    display:block;
+  }
+
+  .navbar-nav{
+    flex-direction:column;
+    width:100%;
+    margin-top:15px;
+    background:rgb(13,94,5);
+    padding:12px;
+    border-radius:12px;
+  }
+
+  .nav-item{
+    width:100%;
+  }
+
+  .flex-container{
+    flex-direction:column;
+    text-align:center;
+    gap:30px;
+  }
+
+  .left-col{
+    align-items:center;
+  }
+
+  .left-col h2{
+    text-align:center;
+  }
+
+  .hero-text{
+    text-align:center;
+  }
+
+  .hero-buttons{
+    justify-content:center;
+  }
+
+  .img-box{
+    width:min(420px,100%);
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media(max-width:768px){
+
+  .navbar .container img,
+  .logo-img{
+    height:52px;
+  }
+
+  #home{
+    padding-top:110px;
+    padding-bottom:40px;
+  }
+
+  .left-col{
+    width:100%;
+  }
+
+  .left-col h2{
+    font-size:1.5rem;
+    text-align:center;
+    padding:0 10px;
+    line-height:1.5;
+  }
+
+  .hero-text{
+    font-size:0.95rem;
+    padding:0 10px;
+  }
+
+  .img-box{
+    width:min(320px,100%);
+    padding:16px;
+  }
+
+  .menu-section{
+    padding:50px 0;
+  }
+
+  .menu-slider{
+    flex-wrap:wrap;
+  }
+
+  .menu-image-box{
+    width:100%;
+    height:240px;
+  }
+
+  .arrow{
+    width:46px;
+    height:46px;
+    font-size:22px;
+  }
+
+  .about-text,
+  .order-form{
+    padding:20px;
+  }
+
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+@media(max-width:480px){
+
+  .container{
+    width:94%;
+  }
+
+  .navbar .container img,
+  .logo-img{
+    height:44px;
+  }
+
+  #home{
+    padding-top:100px;
+  }
+
+  .left-col h2{
+    font-size:1.2rem;
+    line-height:1.6;
+    text-align:center;
+    padding:0 8px;
+  }
+
+  .hero-text{
+    font-size:0.92rem;
+    line-height:1.7;
+  }
+
+  .hero-buttons{
+    flex-direction:column;
+    width:100%;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  .img-box{
+    width:min(250px,100%);
+    padding:12px;
+  }
+
+  .menu-image-box{
+    height:200px;
+  }
+
+  .arrow{
+    width:42px;
+    height:42px;
+    font-size:20px;
+  }
+
+  .nav-link{
+    font-size:14px;
+  }
+
+  .about-text,
+  .order-form{
+    padding:16px;
+    border-radius:14px;
+  }
+
+  .contact-section p,
+  .footer-section p{
+    font-size:0.9rem;
+  }
+}
